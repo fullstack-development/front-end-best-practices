@@ -1,12 +1,20 @@
 1. #### Соглашение об именованиях:
-    * Блок, элемент — всегда имя существительное (noun)
-    * Модифатор — должен удовлетворять свойстам [модификатора из английского языка](https://en.wikipedia.org/wiki/Grammatical_modifier). Всегда `adjective` или `adjectival phrase`.
-    * Таким образом, фразы на английском языке  `"$BLOCK_NAME [is] $MODIFIER_NAME"`, `"$ELEMENT_NAME [is] $MODIFIER_NAME"` или `"$MODIFIER_NAME $BLOCK_NAME"`, `"$MODIFIER_NAME $ELEMENT_NAME"` должны быть синтаксически корректными словосочетаниями. Примеры <i>корректных имён:</i>
-      - `input_selected` — `selected input` — выделенный инпут или `input is selected` — инпут выделен;
-      - `header_large` — `large header` — большой заголовок;
-      - `form__save_small`, для элемента save (который, например, вешается на кнопку) — `small save` — маленький сохранить, `save small` — сохранить маленький. Правильно будет употребить noun вместо `verb`  и переименовать элемент в `save-button;` `small save-button` — маленькая кнопка сохранения
-      - `input_focus` — `input focus` — инпут сфокусировать или `input is focus` — инпут это фокус. Правильно будет употребить `adjective` вместо `noun/verb` и переименовать модификатор в `focused; input_focused` — `focused input` — сфокусированный инпут.
-      - `row_error` — `row error` — ошибка строки или `row is error` — строка это ошибка; Правильно будет употребить `adjectival phrase` вместо `noun `и переименовать модификатор в `with-error;` `row_with-error` — `row with  error` — строка с ошибкой.
+    > Блок, элемент — всегда имя существительное (noun)
+
+    > Модифатор — должен удовлетворять свойстам [модификатора из английского языка](https://en.wikipedia.org/wiki/Grammatical_modifier). Всегда `adjective` или `adjectival phrase`.
+
+    > Таким образом, фразы на английском языке  `"$BLOCK_NAME [is] $MODIFIER_NAME"`, `"$ELEMENT_NAME [is] $MODIFIER_NAME"` или `"$MODIFIER_NAME $BLOCK_NAME"`, `"$MODIFIER_NAME $ELEMENT_NAME"` должны быть синтаксически корректными словосочетаниями.
+
+    > Примеры <i>корректных имён:</i>
+    > - `input_selected` — `selected input` — выделенный инпут или `input is selected` — инпут выделен;
+    > - `header_large` — `large header` — большой заголовок;
+
+    > Примеры <i>НЕкорректных имён:</i>
+    > - `form__`***save***`_small`, для элемента save (который, например, вешается на кнопку) — `small save` — маленький сохранить, `save small` — сохранить маленький. Правильно будет употребить noun вместо `verb`  и переименовать элемент в ***`save-button;`*** `small save-button` — маленькая кнопка сохранения
+    > - `input_`***focus*** — `input focus` — инпут сфокусировать или `input is focus` — инпут это фокус. Правильно будет употребить `adjective` вместо `noun/verb` и переименовать модификатор в `focused; input_`***focused*** — `focused input` — сфокусированный инпут.
+    > - `row_`***error*** — `row error` — ошибка строки или `row is error` — строка это ошибка; Правильно будет употребить `adjectival phrase` вместо `noun `и переименовать модификатор в `with-error;` `row_`***with***`-error` — `row with  error` — строка с ошибкой.
+
+    > Обоснование: мы сможем всегда однозначно и без лишних затрат энергии  истолковать сущность элемента вёрстки и накладываемые на него свойства.
     
 2. #### Верстаем всегда по БЭМу, архитектура верстки должна быть компонентной
 
