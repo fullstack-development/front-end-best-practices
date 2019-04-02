@@ -1,7 +1,7 @@
 1. **Соглашение об именованиях:**
-    1. Блок, элемент — всегда имя существительное (noun);
+    * Блок, элемент — всегда имя существительное (noun);
 
-    1. Модифатор — должен удовлетворять свойстам [модификатора из английского языка](https://en.wikipedia.org/wiki/Grammatical_modifier). Всегда `adjective` или `adjectival phrase`;
+    * Модифатор — должен удовлетворять свойстам [модификатора из английского языка](https://en.wikipedia.org/wiki/Grammatical_modifier). Всегда `adjective` или `adjectival phrase`;
 
         > Таким образом, фразы на английском языке  `"$BLOCK_NAME [is] $MODIFIER_NAME"`, `"$ELEMENT_NAME [is] $MODIFIER_NAME"` или `"$MODIFIER_NAME $BLOCK_NAME"`, `"$MODIFIER_NAME $ELEMENT_NAME"` должны быть синтаксически корректными словосочетаниями.  
         > Примеры <i>корректных имён:</i>
