@@ -20,7 +20,7 @@
 
 7. **[Библиотеки](./libraries.md)**;
 
-8. **[Хорошие практики](./architecture.md)**;
+8. **[Хорошие практики](./goodPractice.md)**;
 
 9. **[jQuery](./jQuery.md)**;
 
