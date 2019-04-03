@@ -15,7 +15,7 @@
 
 5. **Все js-ки подключаем внизу страницы перед закрывающимся тегом `<body>`**;
 
-6. **Вся работа со службами браузера (`navigator services`, `cookie`, `localStorage`), т.к. это внешние по отношению к нашему коду службы, от которых не ясно, чего ждать. На спеки тут полагаться не стоит, т.к. есть и новые движки, которые имеют в том числе баги в своих сорцах**;
+6. **Вся работа со службами браузера (`navigator services`, `cookie`, `localStorage`) должна быть обернута в try/catch, т.к. это внешние по отношению к нашему коду службы, от которых не ясно, чего ждать. На спеки тут полагаться не стоит, т.к. есть и новые движки, которые имеют в том числе баги в своих сорцах**;
     > В сафари если включен режим инкогнито или если в браузере стоит блокировка `cookie`, то браузер будет райзить ошибку. Поэтому если ее не отловить, приложение посыпется :)
 
 7. **[Библиотеки](./libraries.md)**;
@@ -31,6 +31,6 @@
 12. **[Производительность](./performance.md)**;
 
 13. **Безопасность**;
-    > * [browsersec](https://code.google.com/archive/p/browsersec/wikis/Main.wiki);
-    > * [html5sec](https://html5sec.org/#javascript);
-    > * [Web Security Basics](https://github.com/vasanthk/web-security-basics).
+    * [Browser Security Handbook from Google](https://code.google.com/archive/p/browsersec/wikis/Main.wiki);
+    * [HTML5 Security Cheatsheet](https://html5sec.org/#javascript);
+    * [Web Security Basics](https://github.com/vasanthk/web-security-basics).

@@ -9,6 +9,7 @@
     > Желательно для каждого приложения более менее формализовать структуру модуля, описать ее в конкретном виде для всех проектов невозможно, так как что-то пишется на `React`, что-то на `React+Redux`, а что-то на простом `jquery`. Для последнего этот пункт наиболее важен, но при этом наиболее неопределен.
 
 3. **Избегать мутаций одной переменной сразу в нескольких функциях**;
+    > Пример плохого кода:
     > ```javascript
     >  var box = {};
     >
@@ -33,18 +34,18 @@
 
 4. **В js нет публичных и частных свойств, поэтому частные методы просто делать с префиксами `"_"` (нижнее подчеркивание)**;
     > ```javascript
-    >  class Person {
-    > constructor (name) {
+    > class Person {
+    >   constructor (name) {
     >    this.name = name;
-    >  }
+    >   }
     >
-    >  public () {
-    >    console.log('Call me from the outer modules');
-    >  }
+    >    public () {
+    >      console.log('Call me from the outer modules');
+    >    }
     >
-    >  _private () {
-    >    console.log('Call me only from the class Person methods, for example from public');
-    >  }
+    >    _private () {
+    >      console.log('Call me only from the class Person methods, for example from public');
+    >    }
     >}
     >```
 
