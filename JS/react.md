@@ -4,11 +4,14 @@
 
 2. **Метод `render()` должен быть чистым ([читаем доки](https://reactjs.org/docs/react-component.html#render))**;
 
-3. **Все методы, возвращающие куски DOM-a, должны начинаться со слова `render`**;
+3. **Избегайте создания методов-рендеров в компонентах-классах (речь не о методе render, а о методах, которые вы можете написать помимо него, и которые тоже возвращают JSX)**;
+    >Так как эти методы возвращают куски JSX, которые не являются полноценными react-unit объектами, у вас могут возникнуть проблемы с сопровождением этих компонент в дальнейшем.  
+    > И потом - с непрваильно вынесенным jsx не удается работать как с полноценным react-unit, проблемы с рефами и отслеживаемостью в ДОМ
+    > Если вы хотите вынести JSX — выносите его в stateless компоненту.     
     > Например:
     > ```javascript
     >  export class OrderStatus extends Component {
-    >    renderStatusView(status) { // метод расположен сразу перед самим render, начинается он с префикса render...
+    >    renderStatusView(status) { // этот рендер должен быть вынесен в отдельную компоненту
     >      if (status === 'succeed') {
     >        return <span>Done!</span>;
     >      }
@@ -17,7 +20,9 @@
     >
     >    render () {
     >      return (
-    >        <div>Order status: {this.renderStatusView(this.props.status)}</div>
+    >        <div>
+    >            Order status: {this.renderStatusView(this.props.status)}// Здесь должна использоваться компонента а не метод
+    >        </div>
     >      );
     >    }
     >  }
