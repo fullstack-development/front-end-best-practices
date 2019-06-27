@@ -27,19 +27,19 @@
     > ![image](https://habrastorage.org/files/45f/aa7/1eb/45faa71eb7e74d3b8c39773cd181f298.gif)
 
 9. **В ряде браузеров (Chrome, Opera, Edge, Firefox 62-, Safari 10-) теги форм, такие как `button`, `fieldset` и `legend`, не могут стать flex-контейнерами**;
-    > Решение проблемы - использовать элемент-обертку внутри тега (например, `div class="button__wrapper"`), и уже для него указать свойство `display: flex`:
-    > ```
-    >    <button class="button">
-    >      <div class="button__wrapper">
-    >        ...
-    >      </div>
+    > Возможное решение - использовать элемент-обертку внутри тега (например, `span class="button"` внутри родительской кнопки `button class="button__wrapper"`), и уже для него указать свойство `display: flex`:
+    > ```html
+    >    <button class="button__wrapper">
+    >      <span class="button">...</span>
     >    </button>
     > ```
 
-    > ```
-    >    .button__wrapper {
+    > ```css
+    >    .button {
     >      display: flex;
     >      ...
     >    }
     > ```
-    > Подробнее об этом можно прочитать на [github](https://github.com/philipwalton/flexbugs#flexbug-9), перевод материала на русский [здесь](http://allexamples.ru/blog/flex-bagi-i-ikh-obkhodnihe-puti).
+    > Подробнее об этом и других багах, возникающих при работе с флексами, можно прочитать на [github](https://github.com/philipwalton/flexbugs), перевод материала на русский [здесь](http://allexamples.ru/blog/flex-bagi-i-ikh-obkhodnihe-puti).
+    >
+    > Для решения проблем с флексами можно воспользоваться неплохим [postcss-плагином](https://github.com/luisrudge/postcss-flexbugs-fixes), который автоматически фиксит некоторые баги в написании стилей для флексов.
