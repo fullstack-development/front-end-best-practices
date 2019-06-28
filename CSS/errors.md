@@ -27,15 +27,15 @@
     > ![image](https://habrastorage.org/files/45f/aa7/1eb/45faa71eb7e74d3b8c39773cd181f298.gif)
 
 9. **В ряде браузеров (Chrome, Opera, Edge, Firefox 62-, Safari 10-) теги форм, такие как `button`, `fieldset` и `legend`, не могут стать flex-контейнерами**;
-    > Возможное решение - использовать элемент-обертку внутри тега (например, `span class="button"` внутри родительской кнопки `button class="button__wrapper"`), и уже для него указать свойство `display: flex`:
+    > Возможное решение - использовать элемент-обертку внутри тега (например, `span class="button__text"` внутри кнопки), и уже для него указать свойство `display: flex`:
     > ```html
-    >    <button class="button__wrapper">
-    >      <span class="button">...</span>
+    >    <button class="button">
+    >      <span class="button__text">...</span>
     >    </button>
     > ```
 
     > ```css
-    >    .button {
+    >    .button__text {
     >      display: flex;
     >      ...
     >    }
