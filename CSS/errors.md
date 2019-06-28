@@ -40,6 +40,6 @@
     >      ...
     >    }
     > ```
-    > Подробнее об этом и других багах, возникающих при работе с флексами, можно прочитать на [github](https://github.com/philipwalton/flexbugs), перевод материала на русский [здесь](http://allexamples.ru/blog/flex-bagi-i-ikh-obkhodnihe-puti).
+    > Подробнее об этом и других багах, возникающих при работе с флексами, можно прочитать на [Flexbugs](https://github.com/philipwalton/flexbugs), перевод материала на русский [здесь](http://allexamples.ru/blog/flex-bagi-i-ikh-obkhodnihe-puti).
     >
     > Для решения проблем с флексами можно воспользоваться неплохим [postcss-плагином](https://github.com/luisrudge/postcss-flexbugs-fixes), который автоматически фиксит некоторые баги в написании стилей для флексов.
