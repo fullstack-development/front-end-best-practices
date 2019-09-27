@@ -6,7 +6,7 @@
         > Таким образом, фразы на английском языке  `"$BLOCK_NAME [is] $MODIFIER_NAME"`, `"$ELEMENT_NAME [is] $MODIFIER_NAME"` или `"$MODIFIER_NAME $BLOCK_NAME"`, `"$MODIFIER_NAME $ELEMENT_NAME"` должны быть синтаксически корректными словосочетаниями.  
         > Примеры <i>корректных имён:</i>
         > - `input_selected` — `selected input` — выделенный инпут или `input is selected` — инпут выделен;
-        > - `header_large` — `large header` — большой заголовок;    
+        > - `header_size_large` — `large header` — большой заголовок;    
         > Примеры <i>НЕкорректных имён:</i>
         > - `form__`***save***`_small`, для элемента save (который, например, вешается на кнопку) — `small save` — маленький сохранить, `save small` — сохранить маленький. Правильно будет употребить noun вместо `verb`  и переименовать элемент в ***`save-button;`*** `small save-button` — маленькая кнопка сохранения;
         > - `input_`***focus*** — `input focus` — инпут сфокусировать или `input is focus` — инпут это фокус. Правильно будет употребить `adjective` вместо `noun/verb` и переименовать модификатор в `focused; input_`***focused*** — `focused input` — сфокусированный инпут;
