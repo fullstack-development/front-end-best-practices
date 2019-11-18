@@ -16,7 +16,7 @@
         * Пропсы React-компоненты, относящиеся к обработке событий, должны именоваться по шаблону `onEventName`, где `EventName` — имя обрабатываемого события.
         * Обработчики событий для БЭМ-элементов, а также для компонент, вложенных в БЭМ-элементы, именуются по шаблону `handleElementNameEventName`, где `ElementName` - имя БЭМ-элемента. Примеры:
           ```
-          <div className="block__cancel-button" onClick={this.handleCancelButtonClick} />
+          <button className="block__cancel-button" onClick={this.handleCancelButtonClick} />
           <div className="block__first-name-input">
             <Input onChange={this.handleFirstNameInputChange} />
           </div>
