@@ -6,9 +6,9 @@
 
 3. **Соглашение об именованиях:**
 
-    1. [Переменные](./variableNaming.md)
+    1. [Переменные](./variablesNaming.md)
 
-    2. [Функции](./functionNaming.md)
+    2. [Функции](./functionsNaming.md)
 
 4. **Методы**;
 
