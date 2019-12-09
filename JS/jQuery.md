@@ -1,7 +1,7 @@
 Или все библиотеки со схожим API, где мы ищем элементы по селекторам и манипулируем ими как с js-переменными, например:
 ```javascript
-  var $newMessage = $('<li class="message" />');
-  var $messageList = $body.find('ul.messages');
+  var $newMessage = $('<li class="js-message" />');
+  var $messageList = $body.find('ul.js-messages');
   $messageList.append($newMessage);
 ```
 1. **все классы, которые используем для поиска по DOM-у должны начинаться с префикса `js-`**;
@@ -19,16 +19,16 @@
 2. **Кэшировать все найденные элементы**;
     >Плохо:
     >```javascript
-    >$('.element').show();
-    >$('.element').find('.children').doSomething();
-    >$('.element').attr('data-id', 123);
+    >$('.js-element').show();
+    >$('.js-element').find('.js-children').doSomething();
+    >$('.js-element').attr('data-id', 123);
     >```
     >
     >Хорошо:
     >```javascript
-    >  var $element = $('.element');
+    >  var $element = $('.js-element');
     >  $element.show();
-    >  $element.find('.children').doSomething();
+    >  $element.find('.js-children').doSomething();
     >  $element.attr('data-id', 123);
     >```
 
