@@ -24,17 +24,17 @@
 
 Вторым примером будет, когда вы в коде опираетесь на что-то из базы данных. Если в базе таких значений не будет и ваша система упала — 99% что это ваша вина, даже если заполнение конкретно этого типа данных было священной обязанностью админов, которые прохалтурили.
 
-### 4. [Библиотеки](./libraries.md).
+### 4. [Библиотеки.](./libraries.md)
 
-### 5. [Хорошие практики](./goodPractice.md).
+### 5. [Хорошие практики.](./goodPractice.md)
 
-### 6. [jQuery](./jQuery.md).
+### 6. [jQuery.](./jQuery.md)
 
-### 7. [React](./react.md).
+### 7. [React.](./react.md)
 
-### 8. [Архитектура](./architecture.md).
+### 8. [Архитектура.](./architecture.md)
 
-### 9. [Производительность](./performance.md).
+### 9. [Производительность.](./performance.md)
 
 ### 10. Безопасность.
 * [Browser Security Handbook from Google](https://code.google.com/archive/p/browsersec/wikis/Main.wiki);
