@@ -1,32 +1,36 @@
 1. **Если клиент предоставил макеты с кастомными шрифтами - проверить, свободные ли они и если нет, то запросить купленные файлы шрифтов**;
 
-2. **Шрифты должны быть в форматах  `.ttf`, `.woff`, `.svg`, для их генерации воспользуйтесь [Font Squirrel](https://www.fontsquirrel.com/)**;
+2. **Если не требуется поддержка старых браузеров, шрифты должны быть в форматах  `.woff2`, `.woff`. Сначала подключать `.woff2` шрифты, затем - `.woff` (пример - ниже)**;
 
-3. **Если в проекте должна быть поддержка нелатинских символов (например, русских), проверьте, что в файле шрифта эти символы есть и при генерации через [Font Squirrel](https://www.fontsquirrel.com/) обязательно укажите поддержку этих subsettings**;
+3. **Если в проекте должна быть поддержка нелатинских символов (например, русских), проверьте, что в файле шрифта эти символы есть.**;
 
 4. **Разные начертания одного и того же шрифта подключайте под одним именем, но для разных `font-weight` и `font-style`**;
       > ```css
       > @font-face {
       >  font-family: "Lato";
-      >  src: url("../fonts/lato-regular.woff2") ...;  /* Pay attention: font is regulat and "..." replaced for other formats */
+      >  src: url("../fonts/lato-regular.woff2"),
+      >       url("../fonts/lato-regular.woff"); 
       >  font-weight: 400;
-      >  font-style: normal; 
+      >  font-style: normal;
       >}
       >@font-face {
       >  font-family: "Lato";
-      >  src: url("../fonts/lato-italic.woff2") ...;  /* Pay attention: font is regular italic and "..." replaced for other formats */
+      >  src: url("../fonts/lato-italic.woff2"),
+      >       url("../fonts/lato-italic.woff"); 
       >  font-weight: 400;
-      >  font-style: italic; 
+      >  font-style: italic;
       >}
       >@font-face {
       >  font-family: "Lato"; 
-      >  src: url("../fonts/lato-light.woff2") ...;  /* Pay attention: font is light and "..." replaced for other formats */
+      >  src: url("../fonts/lato-light.woff2"),
+      >       url("../fonts/lato-light.woff"); 
       > font-weight: 300;
-      >  font-style: normal; 
+      > font-style: normal; 
       >}
       >@font-face {
       >  font-family: "Lato";
-      >  src: url("../fonts/lato-lightitalic.woff2") ...;  /* Pay attention: font is light italic and "..." replaced for other formats */
+      >  src: url("../fonts/lato-lightitalic.woff2"),
+      >       url("../fonts/lato-lightitalic.woff");
       >  font-weight: 300;
       >  font-style: italic; 
       >}
