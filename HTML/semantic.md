@@ -58,6 +58,6 @@
 8. **Использовать семантические теги**;
     > Почему их нужно использовать, узнать можно [здесь](https://www.youtube.com/watch?v=bDYEnNzprzE) и [здесь](https://developer.mozilla.org/ru/docs/Learn/%D0%94%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D0%BE%D1%81%D1%82%D1%8C/HTML)
 
-    > С какой версии браузера поддерживается тег, можно узнать [здесь](http://htmlbook.ru/) или [здесь](http://caniuse.com/)
+    > [Узнать](http://caniuse.com) с какой версии браузера поддерживается тег
 
     > [Блок-схема](http://html5doctor.com/downloads/h5d-sectioning-flowchart.pdf) для выбора HTML5 семантических тегов
