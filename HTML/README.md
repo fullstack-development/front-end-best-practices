@@ -157,8 +157,8 @@
   Нельзя:
 
   ```html
-  <img width='200' />
-  <div class='block'>
+  <img width=200 />
+  <div class=block>
     <a href='/some/url'></a>
   </div>
   ```
