@@ -411,6 +411,10 @@
 
   В сафари если включен режим инкогнито или если в браузере стоит блокировка `cookie`, то браузер будет райзить ошибку. Поэтому если ее не отловить, приложение посыпется :)
 
+<a name="1.28"></a>
+
+- [1.28](#1.28) Не расширять стандартные классы, такие как Array, Error, Map и другие, потому что вот [почему](https://github.com/Microsoft/TypeScript/wiki/Breaking-Changes#extending-built-ins-like-error-array-and-map-may-no-longer-work)
+
 <a name="2"></a>
 
 ## Именование переменных
