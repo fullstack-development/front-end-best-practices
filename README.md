@@ -1,4 +1,4 @@
-# Front-end best practices
+# Front-end best practice
 
 Стандарты компании для frontend-проектов.
 
