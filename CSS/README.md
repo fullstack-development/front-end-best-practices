@@ -119,7 +119,7 @@
 
 - [1.16](#1.16) Имена.
 
-  Использовать `lower-case-hyphenated` (то есть не mySuperAwesomeElement и не `my_super_awesome_element`)
+  Использовать `lower-case-hyphenated` (то есть не `mySuperAwesomeElement` и не `my_super_awesome_element`)
 
   Имена должны отражать смысл, а не описание стилей (`"loading"`, а не `"big-yellow-spinny-thing"`)
 
