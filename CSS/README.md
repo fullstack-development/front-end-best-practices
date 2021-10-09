@@ -306,13 +306,11 @@
 
 - [3.6](#3.6) Названия шрифтов, содержащие пробелы, цифры или знаки пунктуации, кроме дефисов, заключать в кавычки.
 
-  > quote font family names that contain white space, digits, or punctuation characters other than hyphens
-
   Пример:
 
   ```css
   block {
-    font-family: "Times New Roman", serif;
+    font-family: 'Times New Roman', serif;
   }
   ```
 
