@@ -196,7 +196,37 @@
 
 <a name="3.2"></a>
 
-- [3.2](#3.2) Оборачивайте svg-код в собственные реакт компоненты. Во многих фреймворках встроен SVGR, который позволяет подключать svg-файлы как реакт-компоненты. Проблема в том, что у такого компонента напрочь отсутствует типизация, ему можно передать любые пропсы. Поэтому вместо svg-файла стоит создать собственный реакт-компонент, который будет возвращать svg-код. И явно задавать пропсы.  
+- [3.2](#3.2) Во многих фреймворках встроен SVGR, который позволяет подключать svg-файлы как реакт-компоненты. Проблема в том, что у такого компонента напрочь отсутствует типизация, ему можно передать любые пропсы. Решить эту проблему можно следующим образом: 
+  1. создайте файл `global.d.ts.` со следующим содержимым: 
+      ```ts
+        declare module '*.svg' {
+        import * as React from 'react';
+
+        export const ReactComponent: React.FunctionComponent<
+          React.SVGProps<SVGSVGElement> & { title?: string }
+        >;
+
+        const src: string;
+        export default src;
+      }
+      ```   
+  2. Добавьте путь к файлу в массив `include` в вашем `tsconfig.json` (в примере файл находится в корне проекта): 
+  ![image](https://user-images.githubusercontent.com/90761929/222449468-db502f0b-1997-445a-91b9-e9ee8e96d8ee.png)
+  3. Далее при импорте svg - файла вам надо будет писать:
+      ```ts
+        import { ReactComponent as DisableIcon } from './icons/disable.svg';
+        import { ReactComponent as EnableIcon } from './icons/enable.svg';
+      ```   
+      Но эту запись можно улучшить. Создайте файл `index.ts` в папке `icons` и сделайте там реэкспорт ваших svg-файлов:
+      ```ts
+        export { ReactComponent as DisableIcon } from './icons/disable.svg';
+        export { ReactComponent as EnableIcon } from './icons/enable.svg';
+      ```   
+      Теперь у вас будет красивый импорт и типизированные svg: 
+      ```ts
+        import { DisableIcon, EnableIcon } from './icons';
+      ```   
+
 
 <a name="4"></a>
 
