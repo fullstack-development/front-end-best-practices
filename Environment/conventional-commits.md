@@ -5,7 +5,7 @@
 Помимо Conventional Commits в сообществе есть несколько устоявшихся правил, которых мы придерживаемся:
 
 - Не использовать прошедшее время. То есть вместо `added` будет `add`, вместо `updated` будет `update` и так далее.
-- Текст коммитов писать в `lower-case`.
+- Текст коммитов писать в `lower case`. Например: `feat: add transaction component`, `fix: translation`.
 
 <details>
 <summary>Содержание</summary>
