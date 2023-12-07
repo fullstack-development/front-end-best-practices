@@ -8,7 +8,8 @@
 2. [HTML](./HTML/README.md)
 3. [CSS](./CSS/README.md)
 4. [JS](./JS/README.md)
-4. [React](./React/README.md)
+5. [React](./React/README.md)
+6. [Окружение](./Environment/README.md)
 
 ## Contributing
 
