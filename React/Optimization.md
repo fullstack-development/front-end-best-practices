@@ -165,7 +165,7 @@ const TriggerComponent = () => {
       );
     };
     ```
-2. Не менее важная проблема - это хранение объекта в `value`. При каждом изменении состояния и перерендере `ThemeProvider`, объект будет создаваться заново и все компоненты, которые читают контекст, будут перерендериваться. Что бы этого избежать, можно обернуть значение в `useMemo`.
+2. В предыдущем примере есть другая важная проблема - это хранение объекта в `value`. При каждом изменении состояния и перерендере `ThemeProvider`, объект будет создаваться заново и все компоненты, которые читают контекст, будут перерендериваться. Что бы этого избежать, можно обернуть значение в `useMemo`.
     ```tsx
     const Context = React.createContext();
     
@@ -200,6 +200,8 @@ const TriggerComponent = () => {
     ```
     Вот теперь всё хорошо, компоненты использующие `setTheme` не будут перерендериваться при изменении `theme`.
 
+    А вообще, лучше используйте стейт менеджеры, которые решают проблемы оптимального ререндера компонентов (MobX, Zustand и др.). 
+
 <a name="5"></a>
 
 ## Использование Render Prop
@@ -219,7 +221,7 @@ const Page = () => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Header scroll={scroll} />
+      <Header />
       <Content />
       <Footer />
     </div>
@@ -227,10 +229,10 @@ const Page = () => {
 };
 ```
 
-Решение - воспользоваться Render Prop. Вы можете в качестве пропсов передать в компонент `Page` другие компоненты, например `Content`. Если вам нужно при этом, что бы компонент получил состояние, как в случае с `Header`, воспользуйтесь функцией: 
+Решение - воспользоваться Render Prop. Вы можете в качестве пропсов передать в компонент `Page` другие компоненты, например `Content`. 
 
 ```tsx
-const Layout = ({ renderTop, center, bottom }) => {
+const Layout = ({ top, center, bottom }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [scroll, setScroll] = useState();
 
@@ -242,7 +244,7 @@ const Layout = ({ renderTop, center, bottom }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div>{renderTop(scroll)}</div>
+      <div>{top}</div>
       <div>{center}</div>
       <div>{bottom}</div>
     </div>
@@ -252,7 +254,7 @@ const Layout = ({ renderTop, center, bottom }) => {
 const Page = () => {
   return (
     <Layout
-      renderTop={(scroll) => <Header scroll={scroll} />}
+      top={<Header />}
       center={<Content />}
       bottom={<Footer />}
     />
