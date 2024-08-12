@@ -51,7 +51,7 @@
 
   Для него есть переводы, в том числе на русском, но читать надо оригинал, так как там описаны ES6 фичи. Все, что перечислено в гайде принять к исполнению, если это не перекрыто нашими правилами ниже.
 
-  Для `eslint` есть плагины `airbnb` и `airbnb-typescript`.
+  Для `eslint` есть конфиги [airbnb](https://www.npmjs.com/package/eslint-config-airbnb) и [airbnb-typescript](https://www.npmjs.com/package/eslint-config-airbnb-typescript). Обратите внимание, что обработка части правил от `airbnb` в этих конфигах может отсутствовать.
 
 <a name="1.5"></a>
 
