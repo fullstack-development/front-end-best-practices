@@ -8,6 +8,7 @@
 4. [useContext](#4)
 5. [Render Prop](#5)
 6. [Правильный условный рендеринг](#6)
+7. [Использование key](#7)
 
 <a name="1"></a>
 
@@ -58,13 +59,13 @@ export const ScrollWithThrottle = () => {
   const [scroll, setScroll] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleWindowScroll = () => {
       setScroll(window.scrollY);
     };
-    const throttleHandleScroll = throttle(100, handleScroll);
+    const throttledHandleWindowScroll = throttle(100, handleWindowScroll);
 
-    window.addEventListener('scroll', throttleHandleScroll);
-    return () => window.removeEventListener('scroll', throttleHandleScroll);
+    window.addEventListener('scroll', throttledHandleWindowScroll);
+    return () => window.removeEventListener('scroll', throttledHandleWindowScroll);
   }, []);
 
   return <div>{scroll}</div>;
@@ -299,3 +300,44 @@ const withAuthorize = ({ Authorized, UnAuthorized }) => {
   return Component;
 };
 ```
+
+<a name="7"></a>
+
+## Использование key
+
+Вы можете указать React, что ваш элемент не изменился и его не нужно пересоздавать. В примере ниже, компонент `Child` может находится в разных позициях и React по умолчанию назначит ему разный `key`:
+
+```tsx
+const Example = ({ isSecondChildVisible }) => {
+  if (!isSecondChildVisible) {
+    return <Child />; // здесь key = 1
+  }
+
+  return (
+    <>
+      <div>Visible</div> // Здесь key = 1
+      <Child /> // Здесь key = 2
+    </>
+  );
+};
+```
+
+При изменении условия, у `Child` будет разный `key` и React начнёт размонтировать первый `Child` и  монтировать второй `Child`. Что бы этого избежать, можно явно задать одинаковый `key` для обоих `Child`:
+
+```tsx
+const Example = ({ isSecondChildVisible }) => {
+  if (!isSecondChildVisible) {
+    return <Child key="child" />; 
+
+  return (
+    <>
+      <div>Visible</div> 
+      <Child key="child" /> 
+    </>
+  );
+};
+```
+
+Теперь при изменении условия, React увидит, что у элементов `Child` одинаковый `key` и их нужно просто поменять местами, без необходимости размонтирования/монтирования. 
+
+Почему это так работает? Читайте [тут](https://gist.github.com/zagazat/db926ec7ab69061934246a55b64913c3) и смотрите этот [таймкод](https://youtu.be/DDN9himU5PE?si=TLGEiuY5ZP8v1VEk&t=2183).
