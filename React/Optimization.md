@@ -5,8 +5,8 @@
 1. [Введение](#1)
 2. [throttle/debounce](#2)
 3. [Вынос состояния](#3)
-4. [useContext](#4)
-5. [Render Prop](#5)
+4. [Children Prop](#4)
+5. [useContext](#5)
 6. [Правильный условный рендеринг](#6)
 7. [Использование key](#7)
 
@@ -120,6 +120,68 @@ const TriggerComponent = () => {
 
 <a name="4"></a>
 
+## Использование Children Prop
+
+У вас есть компонент, подключащий множество других компонентов и содержащий логику, которая заставляет этот компонент часто перерендериваться. Как итог, все его потомки будут тоже часто перерендериваться:
+
+```tsx
+const Page = () => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [scroll, setScroll] = useState();
+
+  // Logic
+
+  return (
+    <div
+      onScroll={setScroll}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <Header />
+      <Content />
+      <Footer />
+    </div>
+  );
+};
+```
+
+Решение - вынести рендер компонентов на уровень выше, передавая результат рендера через пропсы. 
+
+```tsx
+const Layout = ({ top, center, bottom }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [scroll, setScroll] = useState();
+
+  // Logic
+  
+  return (
+    <div
+      onScroll={setScroll}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div>{top}</div>
+      <div>{center}</div>
+      <div>{bottom}</div>
+    </div>
+  );
+};
+
+const Page = () => {
+  return (
+    <Layout
+      top={<Header />}
+      center={<Content />}
+      bottom={<Footer />}
+    />
+  );
+};
+```
+
+Теперь компоненты `Header`, `Content` и `Footer` не являются прямыми потомками в `Layout`, и не будут перерендериваться при изменении состояний в `Layout`.
+
+<a name="5"></a>
+
 ## useContext
 
 При работе с `useContext` есть сразу несколько подводных камней.
@@ -202,68 +264,6 @@ const TriggerComponent = () => {
     Вот теперь всё хорошо, компоненты использующие `setTheme` не будут перерендериваться при изменении `theme`.
 
     А вообще, лучше используйте стейт менеджеры, которые решают проблемы оптимального ререндера компонентов (MobX, Zustand и др.). 
-
-<a name="5"></a>
-
-## Использование Render Prop
-
-У вас есть компонент, подключащий множество других компонентов и содержащий логику, которая заставляет этот компонент часто перерендериваться. Как итог, все его потомки будут тоже часто перерендериваться:
-
-```tsx
-const Page = () => {
-  const [isHovered, setIsHovered] = useState(false);
-  const [scroll, setScroll] = useState();
-
-  // Logic
-
-  return (
-    <div
-      onScroll={setScroll}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <Header />
-      <Content />
-      <Footer />
-    </div>
-  );
-};
-```
-
-Решение - вынести рендер компонентов на уровень выше, передавая результат рендера через пропсы. 
-
-```tsx
-const Layout = ({ top, center, bottom }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const [scroll, setScroll] = useState();
-
-  // Logic
-  
-  return (
-    <div
-      onScroll={setScroll}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div>{top}</div>
-      <div>{center}</div>
-      <div>{bottom}</div>
-    </div>
-  );
-};
-
-const Page = () => {
-  return (
-    <Layout
-      top={<Header />}
-      center={<Content />}
-      bottom={<Footer />}
-    />
-  );
-};
-```
-
-Теперь компоненты `Header`, `Content` и `Footer` не являются прямыми потомками в `Layout`, и не будут перерендериваться при изменении состояний в `Layout`.
 
 <a name="6"></a>
 
