@@ -287,8 +287,8 @@ const AuthorizedUser = () => {
 Проблема в том, что все хуки и логика, находящиеся перед `if` всегда выполнятся. Решение - проверку на рендер компонента `AuthorizedUser` делать в родителе. Для переиспользования вы можете вынести проверку в HOC:
 
 ```tsx
-const withAuthorize = ({ Authorized, UnAuthorized }) => {
-  const Component = function WithAuthorizeComponent(authProps, unAuthProps) {
+const withAuthorize = ({ AuthorizedUser, UnAuthorizedUser }) => {
+  const Component = function WithAuthorizeComponent({ authProps, unAuthProps }) {
     const isAuthorized = useIsAuthorized();
     return isAuthorized ? (
       <AuthorizedUser {...authProps} />
