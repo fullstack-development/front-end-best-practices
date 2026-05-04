@@ -31,16 +31,24 @@ Read each file and check it against every applicable rule loaded in Step 1. Only
 
 ## Output Format
 
-Number every violation sequentially across all files (1, 2, 3…). For each violation output:
+Number every violation sequentially across all files (1, 2, 3…).
 
-```
-#N [RULE] <rule name>
-FILE:  <relative path>:<line number>
-FOUND: <the problematic code snippet>
-FIX:   <suggested corrected code or explanation>
-```
+Group violations under a `### filename` heading for each file.
 
-Group violations by file. At the end, output a summary:
+For each violation, output the following block **as plain markdown — never inside a fenced code block**:
+
+**#N [RULE]** \<rule name\>
+FILE: [\<relative/path/file.ts\>](\<relative/path/file.ts\>#L\<line number\>)
+FOUND: `<the problematic code snippet>`
+FIX: `<suggested corrected code or explanation>`
+
+**Critical formatting rules:**
+- The `FILE:` value MUST be a markdown link with a `#L<line>` anchor so the user can click it and jump to the line.
+- Use workspace-relative paths (e.g. `src/components/Foo/Foo.tsx`) and 1-based line numbers.
+- Do NOT wrap the violation block in a fenced code block (` ``` `) — doing so would break the clickable link.
+- Only the FOUND/FIX snippets may use inline backticks.
+
+At the end, output a summary as a plain fenced block:
 
 ```
 --- SUMMARY ---
@@ -51,9 +59,7 @@ Files clean: N
 
 If violations were found, end with:
 
-```
 Fix all? Or specify numbers, e.g. "Fix #1 #3".
-```
 
 If no violations are found, say: "All reviewed files comply with the frontend standards."
 
